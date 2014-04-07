@@ -66,7 +66,7 @@ def servertext(word, word_eol, userdata):
 			if '\#' in w:
 				lineprint("Channel "+word+" prevents unregistered users from nick changes. Leaving, changing nick, rejoining.")
 				xchat.command("leave "+word)
-				xchat.command("nick "+xchat.get_prefs("irc_nick1")
+				xchat.command("nick "+xchat.get_prefs("irc_nick1"))
 				xchat.command("join "+word)
 				return xchat.EAT_ALL
 		
