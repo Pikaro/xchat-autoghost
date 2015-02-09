@@ -63,10 +63,10 @@ def servertext(word, word_eol, userdata):
 		return ghost([],[],[])
 
 	elif "while banned on channel" in word_eol[0]:
-		for w in word:
+		for w in word_eol[0].split(' '):
 			if '#' in w:
 				lineprint("Channel "+w+" prevents unregistered users from nick changes. Leaving, changing nick, rejoining.")
-				xchat.command("leave "+w)
+				xchat.command("part "+w)
 				xchat.command("nick "+xchat.get_prefs("irc_nick1"))
 				xchat.command("join "+w)
 				return SUCCESS
